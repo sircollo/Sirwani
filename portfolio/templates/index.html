@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Collins K. Sirwani</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}" />
+		<link rel="icon"href="{% static 'images/favicon.ico' %}">
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a  class="image avatar"><img src="{% static 'images/avats.png' %}" alt="" /></a>
+					<h1><strong>Collins Sirwani<br></strong>, Full Stack<br />
+					Software Developer<br />
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2>Electronics enthusiast turned Full Stack Software Developer.</h2>
+						</header>
+						<p>I am an Electronics engineer and a web developer with exciting skills and passion for frontend and backend programming languages such as Angular, Django and Flask. I have skills for Computer programming, Web development, Databases, electronics maintenance and repair, and as a person who takes responsibility for his own personal development, I am continually evaluating and upgrading my skills so that I stay at the cutting edge of software development. I aspire towards a career that will allow me to channel my creativity through crafting beautiful software and engaging experiences.</p>
+						<ul class="actions">
+							<li><a href="" class="button">Download CV</a></li>
+						</ul>
+					</section>
+					{% for message in messages %}
+					<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+					<script>
+						var m = "{{ message }}";
+						swal("Thank you,", m, "success");
+					</script>
+					{% endfor %}
+				<!-- Two -->
+					<section id="two">
+						<h2>Recent Projects</h2>
+						<div class="row">
+							{% for project in projects %}
+							<article class="col-6 col-12-xsmall work-iem">
+								<a href="{{project.preview}}" target="_blank" class="image fit thumb"><img src="{{project.image.url}} " alt="" /></a>
+								<h3>{{project.title}}</h3>
+								<p>{{project.description}}</p>
+							</article>
+							{% endfor %}
+						</div>
+						<ul class="actions">
+							<li><a href="https://github.com/sircollo" target="_blank" class="button">More Projects</a></li>
+						</ul>
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>Get In Touch</h2>
+						<p>Interested, Have a coment or suggestion? kindly reach out if you are hiring or in need of a service.</p>
+						<div class="row">
+							<div class="col-8 col-12-small">
+								<form method="post">
+									{% csrf_token %}
+									<div class="row gtr-uniform gtr-50">
+										<div class="col-6 col-12-xsmall">
+											<input type="text" name="name" id="name" placeholder="Name" />
+											<!-- {{ form.name}} -->
+										</div>
+										<div class="col-6 col-12-xsmall">
+											<input type="email" name="email" id="email" placeholder="Email" />
+											<!-- {{ form.email}} -->
+										</div>
+										<div class="col-12">
+											<!-- {{ form.message}} -->
+											<textarea name="message" id="message" placeholder="Message" rows="4"></textarea>
+										</div>
+									</div>
+									<ul class="actions" style="padding-top: 5px;">
+										<li><input type="submit" value="Send Message" /></li>
+									</ul>
+								</form>
+							</div>
+							<div class="col-4 col-12-small">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
+										+254745095549
+									</li>
+									<li>
+										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+										<a href="#">collinssirwani@outlook.com</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://www.linkedin.com/in/collins-sirwani-b693bb112/" target="_blank" class="icon brands fa-linkedin" style="color:white"><span class="label">LinkedIn</span></a></li>
+						<li><a href="https://mobile.twitter.com/CollinsSirwani/" target="_blank" class="icon brands fa-twitter" style="color:white"><span class="label">Twitter</span></a></li>
+						<li><a href="https://github.com/sircollo" target="_blank" class="icon brands fa-github" style="color:white"><span class="label">Github</span></a></li>
+						<li><a href="mailto:collinssirwani@outlook.com" target="_blank" class="icon solid fa-envelope" style="color:white"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; sirwani</li><li>2022</li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/jquery.min.js'%}"></script>
+			<script src="{% static 'js/jquery.poptrox.min.js'%}"></script>
+			<script src="{% static 'js/browser.min.js'%}"></script>
+			<script src="{% static 'js/breakpoints.min.js'%}"></script>
+			<script src="{% static 'js/util.js'%}"></script>
+			<script src="{% static 'js/main.js'%}"></script>
+      <script src="https://widget.sirena.app/get?token=dc48618cc5304606887615d862cf696e"></script>
+
+	</body>
+</html>
