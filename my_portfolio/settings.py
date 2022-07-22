@@ -152,11 +152,11 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('cloud_name'),
-    'API_KEY': config('api_key'),
-    'API_SECRET': config('api_secret'),
-}
+cloudinary.config( 
+  cloud_name = config('CLOUD_NAME'), 
+  api_key = config('CLOUD_API_KEY'), 
+  api_secret = config('CLOUD_API_SECRET') 
+)
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
